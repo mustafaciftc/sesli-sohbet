@@ -1,5 +1,5 @@
 // socketHandlers.js - FIXED VERSION
-const { query } = require('./db');
+const { query } = require('./src/db');
 
 const setupSocketHandlers = (io) => {
   const activeRooms = new Map();
