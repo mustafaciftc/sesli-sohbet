@@ -1,0 +1,59 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Voice room responsive improvements */
+.voice-room-participants {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .voice-room-participants {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .voice-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .push-to-talk-btn {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .speaking-indicator {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.6);
+  }
+  
+  .push-to-talk-active {
+    animation: none;
+    transform: scale(1.02);
+  }
+}
